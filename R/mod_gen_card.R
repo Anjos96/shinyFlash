@@ -24,7 +24,7 @@ mod_gen_card_ui <- function(id, addin = FALSE){
       ),
       shiny::actionButton(
         inputId = ns("show_answer"),
-        label = "Show Answer",
+        label = "Mostra",
         class = paste("btn-primary", btn_class),
         width = "33%"
       ),
@@ -107,7 +107,7 @@ mod_gen_card_server <- function(input, output, session, rv,
       rv$answer_visible <- FALSE
       rv$question_visible <- TRUE
       
-      shiny::updateActionButton(session, "show_answer", label = "Show Answer")
+      shiny::updateActionButton(session, "show_answer", label = "Mostra")
     }
     
   })
@@ -116,7 +116,7 @@ mod_gen_card_server <- function(input, output, session, rv,
     if (rv$answer_visible){
       rv$answer_visible <- FALSE
       rv$question_visible <- TRUE
-      shiny::updateActionButton(session, "show_answer", label = "Show Answer")
+      shiny::updateActionButton(session, "show_answer", label = "Mostra")
     }
     
     
@@ -136,7 +136,7 @@ mod_gen_card_server <- function(input, output, session, rv,
     
     rv$card_know <- c(rv$card_know, rv$card_idx[rv$n])
     rv$card_idx <- rv$card_idx[-rv$n]
-    shiny::updateActionButton(session, "show_answer", label = "Show Answer")
+    shiny::updateActionButton(session, "show_answer", label = "Mostra")
     
     if (length(rv$card_idx) > rv$n){
       rv$n <- rv$n + 1
